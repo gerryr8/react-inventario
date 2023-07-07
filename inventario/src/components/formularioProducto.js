@@ -8,7 +8,6 @@ function FormularioProducto() {
     const [precio, setPrice] = useState('');
     const [codigo_fabricante, setManufacturer] = useState('');
     const [fabricantes, setManufacturers] = useState([]);
-
     const [showAlert, setShowAlert] = useState(true);
 
 
