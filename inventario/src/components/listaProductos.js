@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Alert from 'react-bootstrap/Alert';
+import Alert from "react-bootstrap/Alert";
 
 function ListaProductos() {
   const [products, setProducts] = useState([]);
@@ -29,10 +29,7 @@ function ListaProductos() {
       await axios.delete(`http://localhost:3000/productos/${productId}`);
       fetchProducts();
       setShowAlert(true);
-      setTimeout(() => {
-
-     window.location.reload();
-      }, 1000); 
+      window.location.reload();
     } catch (error) {
       console.error("Error al eliminar el producto:", error);
     }
@@ -71,18 +68,18 @@ function ListaProductos() {
     };
 
     getProducts();
-  }, [products]); 
+  }, [products]);
 
   return (
     <div className="container">
       <h2 className="text-center">Lista de Productos</h2>
       <div>
-      {showAlert && (
-        <Alert variant="danger" onClose={handleDismiss} dismissible>
-          Producto eliminado correctamente.
-        </Alert>
-      )}
-    </div>
+        {showAlert && (
+          <Alert variant="danger" onClose={handleDismiss} dismissible>
+            Producto eliminado correctamente.
+          </Alert>
+        )}
+      </div>
       <table className="table table-striped">
         <thead className="thead-dark">
           <tr>
@@ -102,7 +99,7 @@ function ListaProductos() {
               <td>{product.nombre_fabricante}</td>
               <td>
                 <a
-                  className="btn btn-primary"
+                  className="btn btn-warning"
                   href={`/productos/actualizar/${product.codigo}`}
                 >
                   <svg
@@ -123,7 +120,7 @@ function ListaProductos() {
                     <path d="M16 5l3 3" />
                   </svg>
                 </a>
-                &nbsp; &nbsp;  &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;
                 <button
                   className="btn btn-danger"
                   onClick={() => handleDelete(product.codigo)}

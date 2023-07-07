@@ -45,11 +45,21 @@ function App() {
           />
           <Route
             path="/productos/actualizar/:id"
-            element={<ActualizarProducto />}
+            element={
+              <div>
+              <BuscadorProductos onSearch={handleSearch} />
+              <ActualizarProducto />
+            </div>}
+            
           />
           <Route
             path="/fabricantes/actualizar/:id"
-            element={<ActualizarFabricante />}
+           
+            element={
+              <div>
+              <BuscadorProductos onSearch={handleSearch} />
+              <ActualizarFabricante />
+            </div>}
           />
         </Routes>
       </div>
