@@ -19,7 +19,7 @@ function FormularioProducto() {
   
     const fetchManufacturers = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/fabricantes'); // Reemplaza la ruta con la URL de tu API
+        const response = await axios.get('http://localhost:3000/fabricantes');
         setManufacturers(response.data);
       } catch (error) {
         console.error('Error al obtener la lista de fabricantes:', error);
@@ -40,7 +40,7 @@ function FormularioProducto() {
       };
   
       try {
-        await axios.post('http://localhost:3000/productos', productData); // Reemplaza la ruta con la URL de tu API
+        await axios.post('http://localhost:3000/productos', productData);
         setName('');
         setPrice('');
         setManufacturer('');

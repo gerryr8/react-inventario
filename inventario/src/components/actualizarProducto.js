@@ -50,7 +50,7 @@ function ActualizarProducto() {
     try {
       await axios.put(`http://localhost:3000/productos/${id}`, productData);
       alert('Producto actualizado exitosamente');
-      navigate('/productos'); // Redireccionar a la lista de productos
+      navigate('/productos'); 
     } catch (error) {
       console.error('Error al actualizar el producto:', error);
       alert('Ocurrió un error al actualizar el producto');

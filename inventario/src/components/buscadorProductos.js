@@ -20,7 +20,7 @@ function BuscadorProductos({ onSearch }) {
       const results = response.data;
       setSearchResults(results);
       setNoResults(results.length === 0);
-      onSearch(results); // También puedes llamar a la función `onSearch` si es necesario en el componente padre
+      onSearch(results);
     } catch (error) {
       console.error('Error al buscar productos:', error);
     }

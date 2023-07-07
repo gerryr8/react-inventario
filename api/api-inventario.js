@@ -26,7 +26,7 @@ connection.connect((error) => {
   }
 });
 
-// todos los productos
+
 app.get('/productos', (req, res) => {
   const query = 'SELECT * FROM producto';
 
@@ -40,7 +40,7 @@ app.get('/productos', (req, res) => {
   });
 });
 
-// producto por su codigo
+
 app.get('/productos/:codigo', (req, res) => {
   const codigo = req.params.codigo;
   const query = 'SELECT * FROM producto WHERE codigo = ?';
@@ -59,7 +59,7 @@ app.get('/productos/:codigo', (req, res) => {
   });
 });
 
-//  agregar un producto
+
 app.post('/productos', (req, res) => {
   const { nombre, precio, codigo_fabricante } = req.body;
   const query = 'INSERT INTO producto (nombre, precio, codigo_fabricante) VALUES (?, ?, ?)';
@@ -75,7 +75,7 @@ app.post('/productos', (req, res) => {
   });
 });
 
-// actualizar un producto
+
 app.put('/productos/:codigo', (req, res) => {
   const codigo = req.params.codigo;
   const { nombre, precio, codigo_fabricante } = req.body;
@@ -91,7 +91,7 @@ app.put('/productos/:codigo', (req, res) => {
   });
 });
 
-// eliminar un producto
+
 app.delete('/productos/:codigo', (req, res) => {
   const codigo = req.params.codigo;
   const query = 'DELETE FROM producto WHERE codigo = ?';
@@ -106,7 +106,7 @@ app.delete('/productos/:codigo', (req, res) => {
   });
 });
 
-//  todos los fabricantes
+
 app.get('/fabricantes', (req, res) => {
   const query = 'SELECT * FROM fabricante';
 
@@ -120,7 +120,7 @@ app.get('/fabricantes', (req, res) => {
   });
 });
 
-// fabricante por su código
+
 app.get('/fabricantes/:codigo', (req, res) => {
   const codigo = req.params.codigo;
   const query = 'SELECT * FROM fabricante WHERE codigo = ?';
@@ -139,7 +139,7 @@ app.get('/fabricantes/:codigo', (req, res) => {
   });
 });
 
-// agregar un fabricante
+
 app.post('/fabricantes', (req, res) => {
   const { nombre } = req.body;
   const query = 'INSERT INTO fabricante (nombre) VALUES (?)';
@@ -155,7 +155,7 @@ app.post('/fabricantes', (req, res) => {
   });
 });
 
-// actualizar un fabricante
+
 app.put('/fabricantes/:codigo', (req, res) => {
   const codigo = req.params.codigo;
   const { nombre } = req.body;
@@ -171,7 +171,7 @@ app.put('/fabricantes/:codigo', (req, res) => {
   });
 });
 
-// eliminar un fabricante
+
 app.delete('/fabricantes/:codigo', (req, res) => {
   const codigo = req.params.codigo;
   const query = 'DELETE FROM fabricante WHERE codigo = ?';
@@ -187,27 +187,27 @@ app.delete('/fabricantes/:codigo', (req, res) => {
 });
 
 
-// app.get('/productos/buscar', (req, res) => {
-//     const search = req.query.search;
+app.get('/productos/buscar', (req, res) => {
+    const search = req.query.search;
   
-//     const query = `
-//       SELECT codigo, nombre, precio, codigo_fabricante FROM producto
-//       WHERE nombre LIKE '%${search}%'
-//     `;
+    const query = `
+      SELECT codigo, nombre, precio, codigo_fabricante FROM producto
+      WHERE nombre LIKE '%${search}%'
+    `;
   
-//     connection.query(query, (error, results) => {
-//       if (error) {
-//         console.error('Error al buscar productos:', error);
-//         res.status(500).json({ error: 'Ocurrió un error al buscar productos' });
-//       } else {
-//         res.json(results);
-//       }
-//     });
-//   });
+    connection.query(query, (error, results) => {
+      if (error) {
+        console.error('Error al buscar productos:', error);
+        res.status(500).json({ error: 'Ocurrió un error al buscar productos' });
+      } else {
+        res.json(results);
+      }
+    });
+  });
 
-  
 
-//buscar producto
+
+
   app.get('/productos/buscar/:search', (req, res) => {
     const search = req.params.search;
   
@@ -226,7 +226,7 @@ app.delete('/fabricantes/:codigo', (req, res) => {
     });
   });
   
- 
+
 app.listen(3000, () => {
   console.log('Servidor escuchando en el puerto 3000');
 });

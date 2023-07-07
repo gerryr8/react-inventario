@@ -71,7 +71,7 @@ function ListaProductos() {
     };
 
     getProducts();
-  }, [products]); // Realiza la solicitud al obtener los productos y cuando cambia la lista de productos
+  }, [products]); 
 
   return (
     <div className="container">

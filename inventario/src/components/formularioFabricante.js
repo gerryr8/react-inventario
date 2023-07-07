@@ -12,7 +12,7 @@ function FormularioFabricante() {
     };
 
     try {
-      await axios.post('http://localhost:3000/fabricantes', manufacturerData); // Reemplaza la ruta con la URL de tu API
+      await axios.post('http://localhost:3000/fabricantes', manufacturerData);
       setName('');
       alert('Fabricante agregado exitosamente');
       window.location.reload();

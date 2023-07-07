@@ -12,7 +12,7 @@ function ActualizarFabricante({ manufacturerId }) {
     };
 
     try {
-      await axios.put(`http://localhost:3000/fabricantes/${manufacturerId}`, manufacturerData); // Reemplaza la ruta con la URL de tu API
+      await axios.put(`http://localhost:3000/fabricantes/${manufacturerId}`, manufacturerData);
       alert('Fabricante actualizado exitosamente');
     } catch (error) {
       console.error('Error al actualizar el fabricante:', error);

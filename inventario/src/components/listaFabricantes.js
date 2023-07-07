@@ -11,7 +11,7 @@ function ListaFabricantes() {
   
     const fetchManufacturers = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/fabricantes'); // Reemplaza la ruta con la URL de tu API
+        const response = await axios.get('http://localhost:3000/fabricantes');
         setManufacturers(response.data);
       } catch (error) {
         console.error('Error al obtener la lista de fabricantes:', error);
@@ -20,7 +20,7 @@ function ListaFabricantes() {
   
     const handleDelete = async (manufacturerId) => {
       try {
-        await axios.delete(`http://localhost:3000/fabricantes/${manufacturerId}`); // Reemplaza la ruta con la URL de tu API
+        await axios.delete(`http://localhost:3000/fabricantes/${manufacturerId}`);  
         fetchManufacturers();
       } catch (error) {
         console.error('Error al eliminar el fabricante:', error);
